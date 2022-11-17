@@ -1,0 +1,10 @@
+.tabs {
+  display: flex;
+
+  align-items: center;
+
+  list-style: none;
+}
+textarea:disabled {
+  background-color: #fafafa;
+}

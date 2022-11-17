@@ -1,0 +1,75 @@
+{
+  "name": "airdesk-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": " nodemon index.js",
+    "start": "cross-env NODE_ENV=production npm run migrate && cross-env NODE_ENV=production node index.js",
+    "test": "cross-env NODE_ENV=test jest --watch",
+    "lint": "eslint .",
+    "migrate": " cd ./src && npx sequelize-cli db:migrate --debug",
+    "undo-migrate": "cd ./src && npx sequelize-cli db:migrate:undo --debug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cloudinary": "^1.32.0",
+    "compression": "^1.7.4",
+    "config": "^3.3.7",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "mysql2": "^2.3.3",
+    "path": "^0.12.7",
+    "sequelize": "^6.21.0",
+    "sqlite3": "^5.0.8"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^28.1.0",
+    "jest-watch-typeahead": "^1.1.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "sequelize-cli": "^6.4.1",
+    "supertest": "^6.2.3"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "eqeqeq": "warn",
+      "prettier/prettier": "warn"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120
+  },
+  "jest": {
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  }
+}

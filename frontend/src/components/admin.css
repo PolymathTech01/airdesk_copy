@@ -1,0 +1,48 @@
+.container-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.inner-grid {
+  display: grid;
+  grid-template-columns: 138px 0.5fr 0.41fr;
+  /* grid-gap: 7px; */
+  column-gap: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .inner-grid {
+    display: grid;
+    grid-template-columns: 138px 0.5fr 0.5fr;
+  }
+}
+@media screen and (min-width: 475px) and (max-width: 686px) {
+  #deskCode {
+    width: 12rem;
+  }
+}
+
+@media screen and (max-width: 687px) {
+  #barcode {
+    grid-area: barcode;
+    /* grid-gap: 8px; */
+    /* width: 100%; */
+    /* margin-right: 1rem; */
+  }
+  #codeInstruction {
+    min-width: 12rem;
+    grid-area: codeInstruction;
+  }
+  #deskCode {
+    grid-area: deskCode;
+    margin-left: 0;
+    /* margin-top: 0.5rem; */
+  }
+  .inner-grid {
+    display: grid;
+    grid-template-areas:
+      'barcode codeInstruction'
+      'barcode deskCode';
+    column-gap: 1.5rem;
+    row-gap: 7px;
+  }
+}

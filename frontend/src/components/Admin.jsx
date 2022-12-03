@@ -29,7 +29,7 @@ const Admin = () => {
       notifyError('Sorry, Your desk cannot be empty!');
     } else {
       setLoading(true);
-      const res = axios.post('/api/desk/generateId', { message });
+      const res = Desks.saveDesk(message);
       res
         .then((res) => {
           setLoading(false);
@@ -187,9 +187,7 @@ const Admin = () => {
             <img
               src={paperTilt}
               alt='papertilt'
-              onClick={
-                (acceptdFilesContext.length > 0 || message) && generateDeskId
-              }
+              onClick={message && generateDeskId}
               className={`absolute right-0 rounded-full p-4 ${
                 message ? 'bg-[#3E9383] cursor-pointer' : 'bg-[#DEE7F4]'
               } `}
